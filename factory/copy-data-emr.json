@@ -1,0 +1,9 @@
+{
+	"name": "copy-data-emr",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "de45eb23-082b-41cd-ae9e-490ebf436e71",
+		"tenantId": "e0929f31-a4d3-4742-af20-3c710ff03730"
+	}
+}
