@@ -137,6 +137,7 @@
 						"referenceName": "csv_dataset",
 						"type": "DatasetReference",
 						"parameters": {
+							"fileName": "Employee.csv",
 							"filePath": "Year / Month / Day",
 							"container": "new-data-yyyy-mm-dd "
 						}
