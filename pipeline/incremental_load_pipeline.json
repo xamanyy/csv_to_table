@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "Select \t\nLastLoadedTimestamp From ",
+						"sqlReaderQuery": "Select \t\nLastLoadedTimestamp From [dbo].[IncrementalLoadControl] where TableName = 'Employee'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -38,6 +38,30 @@
 								"type": "Expression"
 							}
 						}
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "LastLoadTimestamp",
+					"value": {
+						"value": "@activity('Lookup1').output.firstRow",
+						"type": "Expression"
 					}
 				}
 			}
