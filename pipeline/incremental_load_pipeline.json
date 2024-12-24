@@ -104,7 +104,8 @@
 							"databaseName": {
 								"value": "@pipeline().parameters.databaseName",
 								"type": "Expression"
-							}
+							},
+							"tableName": "Employee"
 						}
 					}
 				]
