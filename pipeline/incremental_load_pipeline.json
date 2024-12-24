@@ -27,6 +27,20 @@
 				}
 			}
 		],
+		"parameters": {
+			"serverName": {
+				"type": "string",
+				"defaultValue": "sqldb-serve.database.windows.net"
+			},
+			"databaseName": {
+				"type": "string",
+				"defaultValue": "hospital-a"
+			},
+			"tableName": {
+				"type": "string",
+				"defaultValue": "IncrementalLoadControl"
+			}
+		},
 		"annotations": []
 	}
 }
