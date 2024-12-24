@@ -17,12 +17,27 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "Select \t\nLastLoadedTimestamp From ",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
 						"referenceName": "sqlDb_dataset",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"serverName": {
+								"value": "@pipeline().parameters.serverName",
+								"type": "Expression"
+							},
+							"databaseName": {
+								"value": "@pipeline().parameters.databaseName",
+								"type": "Expression"
+							},
+							"tableName": {
+								"value": "@pipeline().parameters.tableName",
+								"type": "Expression"
+							}
+						}
 					}
 				}
 			}
@@ -39,6 +54,11 @@
 			"tableName": {
 				"type": "string",
 				"defaultValue": "IncrementalLoadControl"
+			}
+		},
+		"variables": {
+			"LastLoadTimestamp": {
+				"type": "String"
 			}
 		},
 		"annotations": []
